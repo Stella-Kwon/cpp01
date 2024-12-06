@@ -1,22 +1,23 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: skwon2 <skwon2@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/03 20:33:12 by skwon2            #+#    #+#              #
-#    Updated: 2024/12/03 20:41:45 by skwon2           ###   ########.fr        #
+#    Updated: 2024/12/06 14:42:33 by skwon2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Address
+NAME = Harl
 
 COMPILER = c++
 
 INC = 
 
-SRC = 	main.cpp
+SRC = 	main.cpp\
+		Harl.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++20
 
