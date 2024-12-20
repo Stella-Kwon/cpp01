@@ -6,7 +6,7 @@
 /*   By: skwon2 <skwon2@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:33:59 by skwon2            #+#    #+#             */
-/*   Updated: 2024/12/06 14:29:24 by skwon2           ###   ########.fr       */
+/*   Updated: 2024/12/20 11:17:16 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ std::string Replace::replaceStr(const std::string& line, const std::string& s1, 
     return (res);
 }
 
+bool isFileEmpty(std::ifstream& inputFile) {
+    return inputFile.peek() == EOF;  // peeks to check if the next character is the end of file (i.e., empty file)
+}
+
 void Replace::replaceInFile(const std::string& filename, const std::string& s1, const std::string& s2)
 {
     if (s1.empty())
@@ -34,6 +38,9 @@ void Replace::replaceInFile(const std::string& filename, const std::string& s1, 
     {
         std::cout << "Inputfile:" << filename << " is not opened." << std::endl;
         return;
+    }
+    if (isFileEmpty(inputFile)) {
+        std::cout << "The file is empty." << std::endl;
     }
     std::ofstream outputFile(filename + ".replace");
     if (!outputFile.is_open())
@@ -55,7 +62,7 @@ int main(int argc, char **argv)
 {
     if (argc != 4)
     {
-        std::cout << "Usage : \"" << argv[0] << " filename s1 s1\" is the right syntax.\n";
+        std::cout << "Usage : \"" << argv[0] << " filename s1 s2\" is the right syntax.\n";
         return 1;
     }
     Replace::replaceInFile(argv[1], argv[2], argv[3]);
